@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+}
+
+.border {
+    border: 1px solid #000;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    flex-direction: column;
+}
+
+.container #screen {
+    width: 250px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-family: fantasy;
+    color: rgb(36, 155, 36);
+}
+
+.container .controls{
+    width: 80%;
+    height: auto;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+.container button{
+    font-size: 20px;
+    border-radius: 6px;
+}
+
+.container #reset {
+    margin-top: 10px;
+    width: 65%;
+}
