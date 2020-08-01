@@ -1,9 +1,10 @@
+"use strict"
 // Get all buttons
 let startBtn = document.querySelector('#start');
 let pauseBtn = document.querySelector('#pause');
 let resetBtn = document.querySelector('#reset');
 let screen = document.querySelector('#screen');
-let timer, currentTime, pauseTime;
+let timer, currentTime, pauseSec, continueTime;
 
 // Function to make sure the value is 2-Digits
 function pad(val){
@@ -26,7 +27,7 @@ startBtn.addEventListener('click', function(){
     startBtn.setAttribute('disabled', 'disabled');
 
     // Get current time in ms;
-    startTime = Date.now();
+    var startTime = Date.now();
 
     // Tag the time generator "timer"
     timer = setInterval( ()=> {
@@ -40,15 +41,21 @@ startBtn.addEventListener('click', function(){
 // Add a pause btn feature to stop the current counter
 let pause = true;       // Pause status flag
 pauseBtn.addEventListener('click', function(){
-    if(pause){  // When pause is clicked at first state
-        pauseBtn.textContent = "Resume";
-        clearInterval(timer);
-        pauseTime = currentTime;
-        let continueTimer = Math.ceil((pauseTime + Date.now())/Date.now());
-        // countinue counter from where it left off
-    } else {    // When pause is clicked at second state
-        console.log('Not Paused');
+    if(!pause){  // When pause is clicked at second state
+        // Continue stopwatch timer from where it left off
+        var resumeTime = Date.now();
+        // Get in ms not in sec;
+        timer = setInterval( ()=> {
+            continueTime = Date.now() - resumeTime;
+            setTime( (continueTime/1000) + pauseSec);
+        } ,1000)
         pauseBtn.textContent = "Pause";
+
+    } else {    // When pause is clicked at first state
+        pauseBtn.textContent = "Resume";
+        pauseSec = currentTime/1000;    // Time in Sec timer was paused
+        clearInterval(timer);
+        // console.log(pauseSec);
     }
     pause = !pause;
 });
