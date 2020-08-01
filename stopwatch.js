@@ -35,7 +35,7 @@ startBtn.addEventListener('click', function(){
     }, 1000)
 });
 
-// pause button listener to pause and resume counter
+// pause button listener to pause and resume the stopwatch counter
 
 // Reset stopwatch timer
 resetBtn.addEventListener('click', function(){
