@@ -7,6 +7,13 @@ let screen = document.querySelector('#screen');
 let timer, currentTime, pauseSec, continueTime, timer2;
 var startState = false, resetState = false, pauseState = false, resumeState = false;
 
+// Print the current date and time
+let dateField = document.querySelector('#dateSection');
+setInterval(()=> {
+    let date = new Date();
+    dateField.innerHTML = `<p id=dateTime>${date}</p>`;
+}, 1000)
+
 
 // Function to make sure the value is 2-Digits
 function pad(val){
