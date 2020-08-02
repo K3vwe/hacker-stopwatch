@@ -21,7 +21,7 @@ function setTime(value){
     let hour = pad(Math.floor(value/3600));
     let minute = pad(Math.floor((value%3600)/60));
     let second = pad(Math.floor((value%3600)%60));
-    screen.innerHTML = `${hour} : ${minute} : ${second}`
+    screen.innerHTML = `${hour}:${minute}:${second}`
 }
 
 // Start listener to start the stop watch
